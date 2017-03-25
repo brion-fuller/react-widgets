@@ -1,0 +1,11 @@
+:root{
+  --hover-color: #000000;
+  --font-color:#9e9e9e;
+  --border-thickness: 2px;
+  --animation-time: 300ms;
+
+  /* Check Box */
+  --checkmark-color: #efefef;
+  --checked-color: #4284ae;
+  --unchecked-color: #efefef;
+}

@@ -1,0 +1,99 @@
+@import '../themes/default.css';
+
+:root{
+  --height: 1em;
+  --animation-time: 300ms;
+}
+.container{
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  position: relative;
+  white-space: nowrap;
+}
+.input{
+  position: absolute;
+  /* Still needs to be available for focus*/
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+.labelContainer{
+  color: var(--font-color);
+  border-color: var(--font-color);
+}
+.checkbox{
+  height: calc(var(--height) + var(--border-thickness)*2);
+  width: calc(var(--height) + var(--border-thickness)*2);
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  border-width: var(--border-thickness);
+  border-style: solid;
+  border-radius: 2px;
+  background: var(--checked-color);
+  transition: color var(--animation-time) ease-in;
+  box-sizing: border-box;
+  transform: translateZ(0);
+}
+.checkbox:after{ 
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--unchecked-color);
+  transform: scale(1);
+  transition-property: transform;
+  transition-timing-function: ease-out;
+  transition: var(--animation-time) ease-out;
+}
+.input:checked + .labelContainer > .checkbox:after{
+  transform: scale(0);
+}
+.input:checked + .labelContainer > .checkbox:before{
+  content: "";
+  position: absolute;
+  top: .3em;
+  left: .1em;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transform: rotate(45deg);
+  transform-origin: 0% 100%;
+  animation: checkbox-check 125ms 300ms cubic-bezier(.4,.0,.23,1) forwards;
+}
+.label{
+  height: var(--height);
+  display: inline-block;
+  vertical-align: top;
+  padding: var(--border-thickness);
+  margin-left: 5px;
+  transition: color var(--animation-time) ease-in;
+}
+.labelContainer:hover, .labelContainer:focus, .input:focus + .labelContainer{
+  color: var(--hover-color);
+  border-color: var(--hover-color);
+}
+
+@keyframes checkbox-check{
+  0%{
+    width: 0;
+    height: 0;
+    border-color: var(--checkmark-color);
+    transform: translate3d(0,0,0) rotate(45deg);
+  }
+  33%{
+    width: .3em;
+    height: 0;
+    transform: translate3d(0,0,0) rotate(45deg);
+  }
+  100%{    
+    width: .3em;
+    height: .7em;    
+    border-color: var(--checkmark-color);
+    transform: translate3d(0,-.5em,0) rotate(45deg);
+  }
+}

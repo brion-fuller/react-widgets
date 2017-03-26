@@ -6,13 +6,16 @@
   "scripts": {
     "test": "mocha --require ./mocha.config.js --compilers js:babel-register ./src/**/spec.jsx --recursive",
     "test:watch": "mocha --require ./mocha.config.js --compilers js:babel-register ./src/**/spec.jsx --recursive --watch",
-    "coverage": "istanbul cover --dir report ./node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --require ./mocha.config.js ./src/**/spec.jsx",
+    "cover": "istanbul cover --dir report ./node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --require ./mocha.config.js ./src/**/spec.jsx",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint src",
     "storybook": "start-storybook -p 9001"
   },
   "author": "Brion L Fuller II",
   "license": "ISC",
   "dependencies": {
+    "coveralls": "^2.12.0",
+    "mocha-lcov-reporter": "^1.3.0",
     "react": "~15.4.2",
     "react-dom": "~15.4.2"
   },

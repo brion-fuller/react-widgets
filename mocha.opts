@@ -1,0 +1,4 @@
+--require ./mocha.config.js 
+--compilers js:babel-register,jsx:babel-register
+--recursive
+./src/**/spec.jsx

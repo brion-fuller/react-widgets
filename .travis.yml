@@ -3,10 +3,11 @@ node_js:
   - "node"
 script:
   - yarn run test
-  - yarn run coverage
   - yarn run lint
 branches:
   only:
     - master
+after_success:
+- yarn run codecov
 cache:
   yarn: true

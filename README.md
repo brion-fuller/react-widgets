@@ -1,4 +1,5 @@
 # react-widgets
+[![Build Status](https://travis-ci.org/brion-fuller/react-widgets.svg?branch=master)](https://travis-ci.org/brion-fuller/react-widgets)
 
 Please make sure to have npm or yarn installed
 

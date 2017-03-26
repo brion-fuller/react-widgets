@@ -8,6 +8,6 @@ branches:
   only:
     - master
 after_success:
-- yarn run coveralls
+- yarn run codecov
 cache:
   yarn: true

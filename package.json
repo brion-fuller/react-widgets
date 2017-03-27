@@ -1,9 +1,12 @@
 {
   "name": "fuller-widgets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Suite of React Components",
   "main": "dist/index.js",
+  "module": "src/index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
+    "build": "webpack",
     "test": "mocha --opts ./mocha.opts",
     "test:watch": "mocha --opts ./mocha.opts --watch",
     "cover": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- --opts ./mocha.opts",
@@ -29,6 +32,7 @@
     "babel-preset-react": "~6.23.0",
     "babel-preset-stage-0": "~6.22.0",
     "chai": "~3.5.0",
+    "clean-webpack-plugin": "^0.1.16",
     "codecov": "^2.1.0",
     "css-loader": "~0.27.3",
     "css-modules-require-hook": "~4.0.6",
@@ -38,18 +42,19 @@
     "eslint-plugin-import": "~2.2.0",
     "eslint-plugin-jsx-a11y": "~4.0.0",
     "eslint-plugin-react": "~6.10.3",
-    "ignore-styles": "~5.0.1",
+    "extract-text-webpack-plugin": "^2.1.0",
     "istanbul": "1.1.0-alpha.1",
     "jsdom": "~9.12.0",
     "mocha": "~3.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "mock-css-modules": "~1.0.0",
-    "postcss-cssnext": "~2.10.0",
+    "postcss-cssnext": "^2.10.0",
     "postcss-import": "~9.1.0",
     "postcss-loader": "~1.3.3",
     "react-addons-test-utils": "~15.4.2",
     "sinon": "~2.1.0",
     "sinon-chai": "~2.9.0",
-    "style-loader": "~0.16.0"
+    "style-loader": "~0.16.0",
+    "webpack": "^2.3.2"
   }
 }
